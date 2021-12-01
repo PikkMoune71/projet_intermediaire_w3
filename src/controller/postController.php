@@ -1,6 +1,6 @@
 <?php
 
-    namespace src\Controller;
+    namespace src\controller;
 
     class Post
     {
