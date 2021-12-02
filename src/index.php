@@ -1,10 +1,7 @@
 <?php
-require_once __DIR__.'/vendor/autoload.php';
-$app = new App\Application();
-
-$app->router->Routing();
+require 'vendor/autoload.php';
+use App\Controllers\Core\Router;
 
 echo '<p>Hello World !</p>';
-
 
 ?>

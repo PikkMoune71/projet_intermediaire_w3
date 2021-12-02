@@ -1,15 +1,12 @@
 <?php
 namespace \App\Model;
 
-use \App\model\Connexion;
+use \App\Model\Connexion;
 
 class userModel {
 
     public function getAllUser(){
 
-        $query = $db->prepare('SELECT * FROM users');
-        $query->execute();
-
-        return $query->fetchAll();
+    
     }
 }

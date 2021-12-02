@@ -1,5 +1,4 @@
 <?php
-namespace \App\Model;
 
 class Connexion {
 	private $login;
@@ -16,14 +15,14 @@ class Connexion {
 	private function connexion(){
 		try
 		{
-	         $bdd = new PDO(
+	         $db = new PDO(
                 'mysql:host=db;dbname='.$this->db.';charset=utf8mb4', 
                     $this->login, 
                     $this->pass
             );
-			$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-			$bdd->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-			$this->connec = $bdd;
+			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+			$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+			$this->connec = $db;
 		}
 		catch (PDOException $e)
 		{
