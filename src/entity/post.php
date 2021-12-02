@@ -1,7 +1,5 @@
 <?php
-namespace src\model;
-
-require('../model/database');
+namespace src\entity;
 
 class Post{
     private $id;
