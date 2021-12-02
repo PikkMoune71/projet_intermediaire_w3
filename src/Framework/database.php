@@ -1,6 +1,6 @@
 <?php
 
-class Connexion {
+class Database {
 	private $login;
 	private $pass;
 	private $connec;
