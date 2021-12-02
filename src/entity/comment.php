@@ -7,51 +7,55 @@ class Comment{
     private $id_post;
     private $content;
 
-    public function __construct($id, $id_author, $id_post, $content)
-    {
-        $this->$id = $id;
-        $this->$id_author = $id_author;
-        $this->$id_post = $id_post;
-        $this->$content = $content;
-    }
-
+    /** 
+     * @return mixed 
+    */
     public function getId()
     {
-        return $this->$id;
+        return $this->id;
     }
     
     public function setId($id)
     {
-        $this->$id = $id;
+        $this->id = $id;
     }
 
+    /** 
+     * @return mixed $id_Author 
+    */
     public function getIdAuthor()
     {
-        return $this->$id_author;
+        return $this->id_author;
     }
 
     public function setIdAuthor($id_author)
     {
-        $this->$id_author = $id_author;
+        $this->id_author = $id_author;
     }
 
+    /** 
+     * @return mixed $id_post
+    */
     public function getIdPost(){
-        return $this->$id_post;
+        return $this->id_post;
     }
 
     public function setIdPost($id_post)
     {
-        $this->$id_post = $id_post;
+        $this->id_post = $id_post;
     }
 
+    /** 
+     * @return mixed $content
+    */
     public function getContent()
     {
-        return $this->$content;
+        return $this->content;
     }
 
     public function setContent($content)
     {
-        $this->$content = $content;
+        $this->content = $content;
     }
 }
 

@@ -9,73 +9,82 @@ class Post{
     private $image;
     private $publish_date;
 
-    public function __construct($id, $id_author, $title, $content, $image, $publish_date){
-        $this->$id = $id;
-        $this->$id_author = $id_author;
-        $this->$title = $title;
-        $this->$content = $content;
-        $this->$image = $image;
-        $this->$publish_date = $publish_date;
-    }
-
+    /** 
+     * @return mixed 
+    */
     public function getId()
     {
-        return $this->$id;
+        return $this->id;
     }
 
     public function setId($id)
     {
-        $this->$id = $id;
+        $this->id = $id;
     }
 
+    /** 
+     * @return mixed $id_Author
+    */
     public function getIdAuthor()
     {
-        return $this->$id_author;
+        return $this->id_author;
     }
 
     public function setIdAuthor($id_author)
     {
-        $this->$id_author = $id_author;
+        $this->id_author = $id_author;
     }
 
+    /** 
+     * @return mixed $title
+    */
     public function getTitle()
     {
-        return $this->$title;
+        return $this->title;
     }
 
     public function setTitle($title)
     {
-        $this->$title = $title;
+        $this->title = $title;
     }
 
+    /** 
+     * @return mixed $content
+    */
     public function getContent()
     {
-        return $this->$content;
+        return $this->content;
     }
 
     public function setContent($content)
     {
-        $this->$content = $content;
+        $this->content = $content;
     }
 
+    /** 
+     * @return mixed $image
+    */
     public function getImage()
     {
-        return $this->$image;
+        return $this->image;
     }
 
     public function setImage($image)
     {
-        $this->$image = $image;
+        $this->image = $image;
     }
 
+    /** 
+     * @return mixed $publish_date
+    */
     public function getPublishDate()
     {
-        return $this->$publish_date;
+        return $this->publish_date;
     }
 
     public function setPublishDate($publish_date)
     {
-        $this->$publish_date = $publish_date;
+        $this->publish_date = $publish_date;
     }
 }
 ?>
