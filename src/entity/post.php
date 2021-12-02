@@ -1,5 +1,5 @@
 <?php
-namespace src\entity;
+namespace src\Entity;
 
 class Post{
     private $id;

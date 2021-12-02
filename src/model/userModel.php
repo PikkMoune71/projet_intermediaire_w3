@@ -1,5 +1,5 @@
 <?php
-namespace \App\model;
+namespace \App\Model;
 
 use \App\model\Connexion;
 

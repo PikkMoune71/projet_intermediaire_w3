@@ -1,5 +1,5 @@
 <?php 
-namespace App\controller\Application;
+namespace App\Controller\Application;
 
 class Router {
 
@@ -7,7 +7,7 @@ class Router {
         isset($_GET['p']) ? $path = $_GET['p'] : $path = null;
 
         switch($path){
-            case 'show':
+            case 'showUser':
                 $controller = new \App\controller\userController();
                 $controller->getAllUser();
                 break;
