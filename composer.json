@@ -1,0 +1,17 @@
+{
+    "name": "antoi/projet",
+    "autoload": {
+        "psr-4": {
+            "App\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "PikkMoune71",
+            "email": "antoinepicard385@mail.com"
+        }
+    ],
+    "require": {
+        "ext-pdo": "*"
+    }
+}
