@@ -1,5 +1,10 @@
 <?php
-    include '../model/database.php';
+use \App\controller\Autoloader;
 
-    echo'<p>hello world !</p>';
+//Autoloader
+require '../controller/Autoloader.php';
+Autoloader::register();
+
+echo '<p>Hello World !</p>';
+
 ?>
