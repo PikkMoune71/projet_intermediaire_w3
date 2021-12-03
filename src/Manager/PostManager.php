@@ -15,7 +15,7 @@ class PostManager
      */
     public function getAllPosts()//:array
     {
-        $query = 'SELECT * FROM `post`';
+        $query = 'SELECT p.*, CONCAT(u.firstname," ",u.lastname) as username FROM post p JOIN users u ON p.id_author = u.id_user;';
         $response = $this->pdo->query($query);
         return $response->fetchAll(PDO::FETCH_CLASS, 'App\Entity\Post');
  
@@ -26,7 +26,7 @@ class PostManager
      */
     public function getPostByID(int $id)
     {
-        $query = 'SELECT * FROM `post` WHERE id = :id';
+        $query = 'SELECT p.*, CONCAT(u.firstname," ",u.lastname) AS username FROM post p JOIN users u ON p.id_author = u.id_user WHERE p.id_author = :id';
         $response = $this->pdo->prepare($query);
         $response->bindValue(':id', $id, PDO::PARAM_INT);
         $response->setFetchMode(PDO::FETCH_CLASS, 'App\Entity\Post');

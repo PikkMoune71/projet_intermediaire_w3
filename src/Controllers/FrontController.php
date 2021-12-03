@@ -29,7 +29,7 @@ class FrontController
     {
         $managerPost = new PostManager(PDOFactory::getMySqlConnection());
         $managerComment = new CommentManager(PDOFactory::getMySqlConnection());
-        $array = [$managerPost->getPostbyId($id),$managerComment->getCommentByPostID($id)];
+        $array = [$managerPost->getPostByID($id),$managerComment->getCommentByPostID($id)];
 
         return $this->render("Article",$array,"Front/show");
 

@@ -8,6 +8,7 @@ require './Framework/PDOFactory.php';
 require './Controllers/SecurityController.php';
 require './Manager/SecurityManager.php';
 require './Entity/post.php';
+require './Manager/CommentManager.php';
 
 // use App\Controllers\FrontController;
 // use App\Controllers\SecurityController;
@@ -28,7 +29,7 @@ switch ($path) {
 
         $Controller = new SecurityController();
         $Controller->signUp();
-
+ 
         break;
         
     case 'post':

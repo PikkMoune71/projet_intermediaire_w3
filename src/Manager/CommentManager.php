@@ -1,5 +1,4 @@
 <?php
-namespace App\Manager;
 
 class CommentManager{
 
@@ -11,13 +10,15 @@ class CommentManager{
     }
 
      /**
-     * @return Post[]
+     * @return Comment
      */
-    public function getAllComment()//:array
+    public function getCommentByPostID(int $postId)
     {
-        $query = 'SELECT * FROM `commentaire`';
-        $response = $this->pdo->query($query);
-        return $response->fetchAll(PDO::FETCH_CLASS, 'App\Entity\comment');
-
+        $query = 'SELECT c.*, CONCAT(u.firstname," ",u.lastname) AS username FROM post c JOIN users u ON c.id_author = u.id_user WHERE c.id_author = :postId';
+        $response = $this->pdo->prepare($query);
+        $response->bindValue(':postId', $postId, PDO::PARAM_INT);
+        $response->setFetchMode(PDO::FETCH_CLASS, 'App\Entity\Comment');
+        $response->execute();
+        return $response->fetchAll();
     }
 }

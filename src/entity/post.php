@@ -8,6 +8,7 @@ class Post{
     private $content;
     private $image;
     private $publish_date;
+    private $username;
 
     /** 
      * @return mixed 
@@ -103,6 +104,22 @@ class Post{
     public function setPublishDate($publish_date)
     {
         $this->publish_date = $publish_date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param mixed $username
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
     }
 }
 ?>
