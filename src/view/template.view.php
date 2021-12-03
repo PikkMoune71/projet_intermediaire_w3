@@ -20,6 +20,6 @@
         </div>
     </div>
     </nav>
-    <?php $content ?>
+    <?= $content ?>
 </body>
 </html>
