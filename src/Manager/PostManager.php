@@ -1,6 +1,6 @@
 <?php
 
-class PostManager extends BaseManager
+class PostManager
 {
     private PDO $pdo;
 
@@ -16,7 +16,7 @@ class PostManager extends BaseManager
     {
         $query = 'SELECT * FROM `post`';
         $response = $this->pdo->query($query);
-        return $response->fetchAll(PDO::FETCH_CLASS, 'Entity\Post');
+        return $response->fetchAll(PDO::FETCH_CLASS, 'App\Entity\post');
 
         /*if ($number) {
             $query = $this->db->prepare('SELECT * FROM post ORDER BY id DESC LIMIT :limit');
@@ -38,7 +38,7 @@ class PostManager extends BaseManager
         $query = 'SELECT * FROM `post` WHERE id_post = :id';
         $response = $this->pdo->prepare($query);
         $response->bindValue(':id', $id, PDO::PARAM_INT);
-        $response->setFetchMode(PDO::FETCH_CLASS, 'Entity\Post');
+        $response->setFetchMode(PDO::FETCH_CLASS, 'App\Entity\post');
         $response->execute();
         return $response->fetch();
     }
