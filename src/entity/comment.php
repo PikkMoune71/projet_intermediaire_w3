@@ -1,5 +1,5 @@
 <?php
-namespace src\Entity;
+// namespace src\Entity;
 
 class Comment{
     private $id;

@@ -1,5 +1,5 @@
 <?php
-namespace App\Framework;
+// namespace App\Framework;
 
 class PDOFactory{
     public static function getMySqlConnection(): PDO

@@ -1,9 +1,16 @@
-<pre>
+
 <?php
 //Autoload
-require 'vendor/autoload.php';
+//require 'vendor/autoload.php';
+require './Controllers/FrontController.php';
+require './Manager/PostManager.php';
+require './Framework/PDOFactory.php';
+require './Controllers/SecurityController.php';
+require './Manager/SecurityManager.php';
+require './Entity/post.php';
 
-use App\Controllers\FrontController;
+// use App\Controllers\FrontController;
+// use App\Controllers\SecurityController;
 
 
 isset($_GET['p']) ? $path = $_GET['p'] : $path = null;
@@ -15,6 +22,12 @@ switch ($path) {
     case null:
         $Controller = new FrontController();
         $Controller->home();
+
+        $Controller = new SecurityController();
+        $Controller->signIn();
+
+        $Controller = new SecurityController();
+        $Controller->signUp();
 
         break;
         

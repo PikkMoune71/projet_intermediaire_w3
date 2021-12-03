@@ -1,5 +1,5 @@
 <?php
-namespace App\Manager;
+
 
 class PostManager
 {
@@ -17,7 +17,7 @@ class PostManager
     {
         $query = 'SELECT * FROM `post`';
         $response = $this->pdo->query($query);
-        return $response->fetchAll(PDO::FETCH_CLASS, 'App\Entity\post');
+        return $response->fetchAll(PDO::FETCH_CLASS, 'App\Entity\Post');
  
     }
 
@@ -29,7 +29,7 @@ class PostManager
         $query = 'SELECT * FROM `post` WHERE id = :id';
         $response = $this->pdo->prepare($query);
         $response->bindValue(':id', $id, PDO::PARAM_INT);
-        $response->setFetchMode(PDO::FETCH_CLASS, 'App\Entity\post');
+        $response->setFetchMode(PDO::FETCH_CLASS, 'App\Entity\Post');
         $response->execute();
         return $response->fetch();
     }
