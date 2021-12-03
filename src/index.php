@@ -2,6 +2,7 @@
 <?php
 //Autoload
 //require 'vendor/autoload.php';
+require './Controllers/BaseController.php';
 require './Controllers/FrontController.php';
 require './Manager/PostManager.php';
 require './Framework/PDOFactory.php';
@@ -23,18 +24,21 @@ switch ($path) {
     case null:
         $Controller = new FrontController();
         $Controller->home();
-
-        $Controller = new SecurityController();
-        $Controller->signIn();
-
-        $Controller = new SecurityController();
-        $Controller->signUp();
- 
         break;
         
     case 'post':
         $Controller = new FrontController();
         $Controller->show($param);
+        break;
+
+    case 'signup':
+        $ControllerSecurity = new SecurityController();
+        $ControllerSecurity->signUp();
+        break;
+        
+    case 'inscription':
+        $ControllerSecurity = new SecurityController();
+        $ControllerSecurity->inscription();
         break;
 }
 

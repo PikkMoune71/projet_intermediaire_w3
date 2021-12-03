@@ -12,60 +12,48 @@ class SecurityManager
     /**
      * @return Security
      */
-    public function connexion($email, $password)
+    public function signIn($email, $password)
     {
         $sql = $this->pdo->prepare("SELECT * FROM users WHERE email = ?");
         $sql->execute(array($email));
         $data = $sql->fetch(\PDO::FETCH_ASSOC);
 
-        if(password_verify($password, $data['password'])) {
-            return $data;
+        if(password_verify($password, $data["password"])) {
+            $_SESSION["users"] = $data;
+            return true;
         }
         return false;
     }
 
-    
+    public function logOut()
+    {
+        session_destroy();
+    }
 
-    public function inscription($email, $firstName, $lastName, $password)
+    public function signUp($email, $password, $lastname, $firstname, $is_admin)
     {
         
-        // Extraction du formulaire d'inscription avec la méthode $_POST
-        if(isset($_POST['submit'])){
-            extract($_POST);
-    
-            // Hashage
-            if(!empty($password) && !empty($cpassword) && !empty($email)) {
-                if($password == $cpassword) {
-                    $options = [
-                        'cost' => 12,
-                    ];
-                    // Hashage du mot de passe
-                    $hashpass = password_hash($passwords, PASSWORD_BCRYPT, $options);
-            
-                    // Prépartion de la requête 
-                    $c = $db->prepare("SELECT email FROM users WHERE email= '$email'");
-                    $c->execute(['email' => $email]);
-                    $result = $c->rowCount();
-            
-                    // Création du Compte
-                    if($result == 0) {
-                        $q = $db->prepare("INSERT INTO email(email, password, firstname, lastname, is_admin) VALUES('$email', '$hashpass','$firstname','$lastname','$is_admin')");
-                        $q->execute([
-                        'email' => $email,
-                        'password' => $hashpass
-                        ]);
-                        echo '<div>';
-                        echo '<h1 class="">Compte Créé.</h1>';
-                        echo '</div>';
+        $check = $this->pdo->prepare('SELECT email, password, firstname, lastname, is_admin FROM users WHERE email = ?');
+        $check->execute(array($email));
+        $data = $check->fetch(); 
+        $row = $check->rowCount();
 
-                    // Sinon renvoie une erreur
-                    } else {
-                        echo '<div>';
-                        echo '<h1 class="">Email déjà utilisé.</h1>';
-                        echo '</div>';
-                    }
+        if($row == 0) {
+            if(preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $email)) {
+                if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $password = password_hash($password, PASSWORD_DEFAULT);
+                    $insert = $this->pdo->prepare('INSERT INTO users(email, password, lastname, firstname, is_admin) VALUES(?, ?, ?, ?, ?)'); // prepare pour y inserer dans la base ":" preparation du tableau associatif
+                    $insert -> execute(array($email, $password, $lastname, $firstname, $is_admin));
+                    return true;
                 }
             }
+        } else {
+            return false;
         }
     }
+
+    // public function logOut()
+    // {
+    //     session_destroy();
+    // }
 }

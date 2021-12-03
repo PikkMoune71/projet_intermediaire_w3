@@ -6,7 +6,7 @@ class Comment{
     private $id_author;
     private $id_post;
     private $content;
-
+    
     /** 
      * @return mixed 
     */
@@ -68,6 +68,22 @@ class Comment{
     public function setContent($content)
     {
         $this->content = $content;
+    }
+
+    /**
+    * @return mixed
+    */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param mixed $username
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
     }
 }
 
