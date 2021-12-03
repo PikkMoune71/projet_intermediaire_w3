@@ -1,4 +1,9 @@
 <?php
+namespace App\Controllers;
+
+use App\Framework\PDOFactory;
+use App\Manager\PostManager;
+use App\Manager\CommentManager;
 
 class FrontController
 {
@@ -7,11 +12,11 @@ class FrontController
         var_dump($manager->getAllPosts());
     }
 
-    public function show() 
+    public function show($id) 
     {
         $managerPost = new PostManager(PDOFactory::getMySqlConnection());
         $managerComment = new CommentManager(PDOFactory::getMySqlConnection());
 
-        var_dump($managerPost->getPostbyId($_GET['id']),$managerComment->getCommentByPostID($_GET['id']));
+        var_dump($managerPost->getPostbyId($id),$managerComment->getCommentByPostID($id));
     }
 }

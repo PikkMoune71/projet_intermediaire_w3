@@ -1,4 +1,5 @@
 <?php
+namespace App\Manager;
 
 class PostManager
 {
@@ -12,22 +13,12 @@ class PostManager
     /**
      * @return Post[]
      */
-    public function getAllPosts(/*int $number = null*/)//:array
+    public function getAllPosts()//:array
     {
         $query = 'SELECT * FROM `post`';
         $response = $this->pdo->query($query);
         return $response->fetchAll(PDO::FETCH_CLASS, 'App\Entity\post');
-
-        /*if ($number) {
-            $query = $this->db->prepare('SELECT * FROM post ORDER BY id DESC LIMIT :limit');
-            $query->bindValue(':limit', $number, \PDO::PARAM_INT);
-            $query->execute();
-        } else {
-            $query = $this->db>query('SELECT * FROM post ORDER BY id DESC');
-        }
-        $query->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'Entity\Post');
-        return $query->fetchAll();*/
-
+ 
     }
 
     /**
@@ -35,7 +26,7 @@ class PostManager
      */
     public function getPostByID(int $id)
     {
-        $query = 'SELECT * FROM `post` WHERE id_post = :id';
+        $query = 'SELECT * FROM `post` WHERE id = :id';
         $response = $this->pdo->prepare($query);
         $response->bindValue(':id', $id, PDO::PARAM_INT);
         $response->setFetchMode(PDO::FETCH_CLASS, 'App\Entity\post');

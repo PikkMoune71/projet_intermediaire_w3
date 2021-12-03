@@ -1,26 +1,27 @@
+<pre>
 <?php
-// require 'vendor/autoload.php';
-// use App\Controllers\Core\Router;
-require 'Controllers/FrontController.php';
-require 'Manager/PostManager.php';
-require './Entity/post.php';
-require 'Framework/PDOFactory.php';
+//Autoload
+require 'vendor/autoload.php';
+
+use App\Controllers\FrontController;
 
 
 isset($_GET['p']) ? $path = $_GET['p'] : $path = null;
+$link = explode('/',$_GET['p']);
+$path = $link[0];
+$param = $link[1];
 
 switch ($path) {
     case null:
-        // Faire un routeur
         $Controller = new FrontController();
         $Controller->home();
+
         break;
         
-    case 'show':
+    case 'post':
         $Controller = new FrontController();
-        $Controller->show();
+        $Controller->show($param);
         break;
-
 }
 
 ?>
