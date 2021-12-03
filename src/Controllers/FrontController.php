@@ -6,12 +6,12 @@ class FrontController
     private $template;
 
     public function __construct(){
-        $this->viewDir = "view/";
-        $this->template  = "view/template.php";
+        $this->viewDir = "View/";
+        $this->template  = "View/template.view.php";
     }
 
     public function render(string $title, array $data, string $view){
-        $view = $this->viewDir . $view . ".php";
+        $view = $this->viewDir . $view . ".view.php";
         ob_start();
         require $view;
         $content = ob_get_clean();
