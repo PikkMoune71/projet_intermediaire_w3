@@ -16,8 +16,18 @@
         <div class="navbar-nav">
             <a class="nav-link" href="/">Posts</a>
             <a class="nav-link" href="/userList">Users</a>
-            <a class="nav-link" href="/signin">SignIn</a>
-            <a class="nav-link" href="/signup">SignUp</a>
+            <?php if($_SESSION["users"]){?>
+            <? if($_SESSION["users"]["isAdmin"]){ ?> 
+                <a type="button" href="/userList" class="btn btn-outline-secondary">Admin</a> <? 
+            }?>
+                <a type="button" href="/logout" class="btn btn-outline-danger">Logout</a>
+                <?php echo '<span class="navbar-text">' . $_SESSION['users']['email'] . '</span>';?>
+            <?php } ?>
+
+            <?php if(!$_SESSION["users"]){?>
+                <a type="button" href="/signin" class="btn btn-outline-secondary">SignIn</a>
+                <a type="button" href="/signup" class="btn btn-outline-primary">SignUp</a>
+            <?php } ?>
         </div>
         </div>
     </div>
