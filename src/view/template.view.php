@@ -14,8 +14,10 @@
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-link" href="#">Posts</a>
-            <a class="nav-link" href="#">Login</a>
+            <a class="nav-link" href="/">Posts</a>
+            <a class="nav-link" href="/userList">Users</a>
+            <a class="nav-link" href="/signin">SignIn</a>
+            <a class="nav-link" href="/signup">SignUp</a>
         </div>
         </div>
     </div>

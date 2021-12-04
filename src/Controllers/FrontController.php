@@ -19,4 +19,17 @@ class FrontController extends BaseController
         return $this->render("Article",$array,"Front/show");
 
     }
+
+    public function userList() {
+        $manager = new UserManager(PDOFactory::getMySqlConnection());
+        $arrayAllUser = $manager->getAllUser();
+        return $this->render("User List",$arrayAllUser,"Front/userList");
+    }
+
+    public function userDelete($id) {
+        $manager = new UserManager(PDOFactory::getMySqlConnection());
+        $manager->deleteUser($id);
+        Header('Location: /userList');
+        exit;
+    }
 }

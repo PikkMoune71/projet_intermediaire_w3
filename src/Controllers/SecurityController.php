@@ -2,33 +2,33 @@
 class SecurityController extends BaseController
 {
 
-    // public function signIn()
-    // {
-    //     $manager = new SecurityManager(PDOFactory::getMySqlConnection());
-    //     return $this->render("Connexion", [],"Security/signIn");
-    // }
+    public function signIn()
+    {
+        $manager = new SecurityManager(PDOFactory::getMySqlConnection());
+        return $this->render("Connexion", [],"Security/signin");
+    }
 
-    // public function login() {
-    //     $manager = new SecurityManager(PDOFactory::getMySqlConnection());
-    //     $data = $manager->signIn($_POST["email"], $_POST["password"]);
+    public function login() {
+        $manager = new SecurityManager(PDOFactory::getMySqlConnection());
+        $data = $manager->signIn($_POST["email"], $_POST["password"]);
         
-    //     if(!$data) {
-    //         Header('Location: /signin');
-    //         exit;
-    //     } else {
-    //         Header('Location: /');
-    //         exit; 
-    //     }
-    // }
+        if(!$data) {
+            Header('Location: /signin');
+            exit;
+        } else {
+            Header('Location: /');
+            exit; 
+        }
+    }
 
-    // public function logout()
-    // {
-    //     $manager = new SecurityManager(PDOFactory::getMySqlConnection());
-    //     $manager->logOut();
+    public function logout()
+    {
+        $manager = new SecurityManager(PDOFactory::getMySqlConnection());
+        $manager->logOut();
 
-    //     Header('Location: /');
-    //     exit;
-    // }
+        Header('Location: /');
+        exit;
+    }
     
     function signUp()
     {
@@ -46,7 +46,6 @@ class SecurityController extends BaseController
             exit;
         } else {
             Header('Location: /signin');
-            echo '<h1>Inscrit !</h1>';
             exit; 
         }
 
