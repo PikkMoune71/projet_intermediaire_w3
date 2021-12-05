@@ -33,4 +33,12 @@ class PostManager
         $response->execute();
         return $response->fetch();
     }
+
+    public function createPost()
+    {
+        $insert = $this->pdo->prepare('INSERT INTO post(title, content, author, img, createdAt) VALUES(?, ?, ?, ?, ?)');
+        $dateNow = date("Y-m-d");
+        $insert -> execute(array($title, $content, $author, $img, $dateNow));
+        return true;
+    }
 }

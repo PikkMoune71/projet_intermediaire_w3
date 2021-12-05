@@ -32,4 +32,16 @@ class FrontController extends BaseController
         Header('Location: /userList');
         exit;
     }
+
+    public function userCrud() {
+        $manager = new UserManager(PDOFactory::getMySqlConnection());
+        $arrayAllUser = $manager->getAllUser();
+        return $this->render("User Crud",$arrayAllUser,"Front/userCrud");
+    }
+
+    public function postCrud() {
+        $manager = new PostManager(PDOFactory::getMySqlConnection());
+        $arrayAllPosts = $manager->getAllPosts();
+        return $this->render("User Crud",$arrayAllPosts,"Front/createPost");
+    }
 }

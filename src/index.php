@@ -71,6 +71,16 @@ switch ($path) {
         $Controller = new FrontController();
         $Controller->userDelete($param);
         break;
+
+    case 'userCrud':
+        $Controller = new FrontController();
+        $Controller->userCrud();
+        break;
+
+    case 'createPost':
+        $Controller = new FrontController();
+        $Controller->postCrud();
+        break;
 }
 
 ?>
