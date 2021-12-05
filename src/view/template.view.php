@@ -11,17 +11,23 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link" href="/">Posts</a>
-                <a class="nav-link" href="/userList">User Crud</a>
-                <a class="nav-link" href="/postCrud">Post Crud</a>
-                <a class="nav-link" href="/createPost">Write Post</a>
-                <a class="nav-link" href="/signin">SignIn</a>
-                <a class="nav-link" href="/signup">SignUp</a>
-            </div>
-            </div>
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-link" href="/">Posts</a>
+            <a class="nav-link" href="/userList">Users</a>
+            <?php if($_SESSION["users"]){?>
+            <? if($_SESSION["users"]["isAdmin"]){ ?> 
+                <a type="button" href="/userList" class="btn btn-outline-secondary">Admin</a> <? 
+            }?>
+                <a type="button" href="/logout" class="btn btn-outline-danger">Logout</a>
+                <?php echo '<span class="navbar-text">' . $_SESSION['users']['email'] . '</span>';?>
+            <?php } ?>
+
+            <?php if(!$_SESSION["users"]){?>
+                <a type="button" href="/signin" class="btn btn-outline-secondary">SignIn</a>
+                <a type="button" href="/signup" class="btn btn-outline-primary">SignUp</a>
+            <?php } ?>
         </div>
     </nav>
     <?= $content ?>
