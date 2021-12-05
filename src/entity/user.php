@@ -15,7 +15,7 @@ class User{
 
     public function getId()
     {
-        return $this->id;
+        return $this->id_user;
     }
 
     public function setId($id)
@@ -81,7 +81,7 @@ class User{
     */
     public function getIsAdmin()
     {
-        return $this->$isAdmin;
+        return $this->is_admin;
     }
     
     public function setIsAdmin($isAdmin)

@@ -14,11 +14,11 @@ class SecurityManager
      */
     public function signIn($email, $password)
     {
-        $sql = $this->pdo->prepare("SELECT * FROM users WHERE email = ?");
+        $sql = $this->pdo->prepare("SELECT * FROM users WHERE email = '$email'");
         $sql->execute(array($email));
+        
         $data = $sql->fetch(\PDO::FETCH_ASSOC);
-
-        if(password_verify($password, $data["password"])) {
+        if($password == $data["password"]) {
             $_SESSION["users"] = $data;
             return true;
         }

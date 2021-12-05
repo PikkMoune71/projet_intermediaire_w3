@@ -1,7 +1,6 @@
 <?php
 class SecurityController extends BaseController
 {
-
     public function signIn()
     {
         $manager = new SecurityManager(PDOFactory::getMySqlConnection());

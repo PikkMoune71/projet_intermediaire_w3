@@ -86,6 +86,16 @@ switch ($path) {
         $Controller = new FrontController();
         $Controller->postCrud();
         break;
+
+    case 'user':
+        $Controller = new FrontController();
+        $Controller->user();
+        break;
+
+    case 'editUser':
+        $Controller = new FrontController();
+        $Controller->editUser();
+        break;
 }
 
 ?>

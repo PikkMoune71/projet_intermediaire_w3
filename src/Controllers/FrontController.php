@@ -50,4 +50,17 @@ class FrontController extends BaseController
         $arrayAllPosts = $manager->getAllPosts();
         return $this->render("Post Crud",$arrayAllPosts,"Front/postCrud");
     }
+
+    public function user() {
+        $manager = new PostManager(PDOFactory::getMySqlConnection());
+        $arrayAllPosts = $manager->getAllPosts();
+        return $this->render("User",$arrayAllPosts,"Front/user");
+    }
+
+    public function editUser() {
+        $manager = new UserManager(PDOFactory::getMySqlConnection());
+        $arrayAllUser = $manager->getAllUser();
+        return $this->render("User Crud",$arrayAllUser,"Front/editUser");
+    }
+
 }

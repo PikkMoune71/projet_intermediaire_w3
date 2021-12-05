@@ -18,13 +18,13 @@
         ?> 
             <tr>
                 <th scope="row"><?= $p->getId() ?></th>
-                <td><?= $p->getTitle() ?></td>
+                <td><?= $p->getTitle()?></td>
                 <td><?= $p->getIdAuthor()?></td>
                 <td><?= $p->getContent()?></td>
                 <td><?= $p->getImage()?></td>
                 <td><?= $p->getPublishDate()?></td>
                 <td>
-                    <button type="button" class="btn btn-primary">Editer</button>
+                    <button onClick="javascript:window.location.href='Front/editPost'" href="Front/editPost" type="button" class="btn btn-primary">Editer</button>
                     <button type="button" class="btn btn-danger">Suprimmer</button>
                 </td>
             </tr>

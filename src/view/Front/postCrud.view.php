@@ -24,8 +24,8 @@
                 <td><?= $p->getPublishDate()?></td>
                 <td><?= $p->getIdAuthor()?></td>
                 <td>
-                    <button type="button" class="btn btn-primary">Editer</button>
-                    <button type="button" class="btn btn-danger">Suprimmer</button>
+                    <button href="" type="button" class="btn btn-primary">Editer</button>
+                    <button href="" type="button" class="btn btn-danger">Suprimmer</button>
                 </td>
             </tr>
         <?php
