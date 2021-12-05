@@ -79,6 +79,11 @@ switch ($path) {
 
     case 'createPost':
         $Controller = new FrontController();
+        $Controller->createPost();
+        break;
+
+    case 'postCrud':
+        $Controller = new FrontController();
         $Controller->postCrud();
         break;
 }

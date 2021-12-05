@@ -15,7 +15,8 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" href="/">Posts</a>
-                <a class="nav-link" href="/userList">UserCrud</a>
+                <a class="nav-link" href="/userList">User Crud</a>
+                <a class="nav-link" href="/postCrud">Post Crud</a>
                 <a class="nav-link" href="/createPost">Write Post</a>
                 <a class="nav-link" href="/signin">SignIn</a>
                 <a class="nav-link" href="/signup">SignUp</a>
