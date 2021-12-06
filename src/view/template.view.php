@@ -24,7 +24,7 @@
                 <a class="nav-link" href="/userList">Users List</a>
                  <? 
             }?>
-                <button href="/user" class="btn btn-outline-secondary"><?= $_SESSION['users']['email'];?></button>
+                <a href="/editUser" class="btn btn-outline-secondary"><?= $_SESSION['users']['email'];?></a>
                 <a type="button" href="/logout" class="btn btn-outline-danger">Logout</a>
             <?php } ?>
 

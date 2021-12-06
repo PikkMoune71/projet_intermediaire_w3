@@ -44,7 +44,7 @@
                         <div class="modal-body">
                         <div class="container">
                             <form method="POST" action="/createPost">
-                                <input type="text" class="form-control" id="firstname" value="<?= $id[1] ?>">
+                                <input type="text" class="form-control" id="firstname" value="">
                                 <input type="text" class="form-control" id="lastname" value=""> 
                                 <input type="text" class="form-control" id="email" value="">
                                 <input type="text" class="form-control" id="password" value="">

@@ -96,6 +96,11 @@ switch ($path) {
         $Controller = new FrontController();
         $Controller->editUser();
         break;
+        
+    case 'updateUser':
+        $Controller = new SecurityController();
+        $Controller->updateUser($email, $password, $lastname, $firstname);
+        break;
 }
 
 ?>

@@ -36,9 +36,9 @@ class UserManager
         $response->execute();
     }
 
-    public function updateUser($email, $password, $lastname, $firstname, $is_admin, $id)
+    public function updateUser($email, $password, $lastname, $firstname)
     {
-        $query = "UPDATE UPDATE users SET email='$email',password='$password',lastname='$lastname',firstname='$firstname',`is_admin`='$is_admin' WHERE id_user='$id'";
+        $query = "UPDATE users SET email='$email',password='$password',lastname='$lastname',firstname='$firstname' WHERE id_user=1";
         $response = $this->pdo->query($query);
         return $response->fetchAll(PDO::FETCH_CLASS, 'App\Entity\User');
     }

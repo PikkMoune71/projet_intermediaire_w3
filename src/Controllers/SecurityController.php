@@ -7,6 +7,28 @@ class SecurityController extends BaseController
         return $this->render("Connexion", [],"Security/signin");
     }
 
+    public function updateUser($email, $password, $lastname, $firstname)
+    {
+        extract($_POST);
+        $manager = new UserManager(PDOFactory::getMySqlConnection());
+        $data = $manager->updateUser($_POST["email"], $_POST["password"],$_POST["lastname"],$_POST["firstname"]);
+        
+        if(!$data) {
+            Header('Location: /editUser');
+            exit;
+        } else {
+            Header('Location: /');
+            exit; 
+        }
+    }
+
+    public function deleteuser()
+    {
+        
+    }
+    
+    
+
     public function login() {
         $manager = new SecurityManager(PDOFactory::getMySqlConnection());
         $data = $manager->signIn($_POST["email"], $_POST["password"]);
