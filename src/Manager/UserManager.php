@@ -29,11 +29,11 @@ class UserManager
         return $response->fetch();
     }
 
-    public function deleteUser(int $id){
-        $query = 'DELETE FROM users WHERE id = :id';
-        $response = $this->pdo->prepare($query);
-        $response->bindValue(':id', $id, PDO::PARAM_INT);
-        $response->execute();
+    public function deleteUser($id){
+        $query = "DELETE FROM `users` WHERE id_user='$id'";
+        $response = $this->pdo->query($query);
+        return $response->fetchAll(PDO::FETCH_CLASS, 'App\Entity\User');
+        
     }
 
     public function updateUser($email, $password, $lastname, $firstname)

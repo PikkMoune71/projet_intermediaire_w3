@@ -29,8 +29,11 @@
                 </td>
                 <th scope="row"><?= $id ?></th>
                 <td>
+                <form method="POST" action="/deleteUser">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="">Edit</button>
-                    <button id="<?= $u->getId() ?>" type="button" class="btn btn-danger">Delete</button>
+                    <input type="text" name="id" value="<?php $id?>">
+                    <button id="<?= $u->getId() ?>" type="submit" class="btn btn-danger">Delete</button>
+                    </form>
 
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -42,16 +45,16 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                        <div class="container">
-                            <form method="POST" action="/createPost">
-                                <input type="text" class="form-control" id="firstname" value="">
-                                <input type="text" class="form-control" id="lastname" value=""> 
-                                <input type="text" class="form-control" id="email" value="">
-                                <input type="text" class="form-control" id="password" value="">
-                                <input type="text" class="form-control" id="id_admin" value="">
-                                <button type="submit" class="btn btn-primary">Modifier</button>
-                            </form>
-                        </div>
+                            <div class="container">
+                                <form method="POST" action="/createPost">
+                                    <input type="text" class="form-control" id="firstname" value="">
+                                    <input type="text" class="form-control" id="lastname" value=""> 
+                                    <input type="text" class="form-control" id="email" value="">
+                                    <input type="text" class="form-control" id="password" value="">
+                                    <input type="text" class="form-control" id="id_admin" value="">
+                                    <button type="submit" class="btn btn-primary">Modifier</button>
+                                </form>
+                            </div>
                         </div>
                         </div>
                     </div>

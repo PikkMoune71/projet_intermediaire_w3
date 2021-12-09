@@ -21,10 +21,11 @@ class SecurityController extends BaseController
             exit; 
         }
     }
-
-    public function deleteuser()
+    public function deleteUser($id)
     {
-        
+        extract($_POST);
+        $manager = new UserManager(PDOFactory::getMySqlConnection());
+        $data = $manager->deleteUser($_POST["id"]);
     }
     
     
@@ -57,10 +58,10 @@ class SecurityController extends BaseController
         return $this->render("Inscription", [], "Security/signup");
     }
 
-    public function inscription()
+    public function inscription($email, $password, $lastname, $firstname)
     {
         $manager = new SecurityManager(PDOFactory::getMySqlConnection());
-        $data = $manager->signUp($_POST["email"], $_POST["password"], $_POST["lastname"], $_POST["firstname"], $_POST['is_admin']);
+        $data = $manager->signUp($_POST["email"], $_POST["firstname"], $_POST["lastname"], $_POST["password"]);
         
         if(!$data) {
             Header('Location: /signup');

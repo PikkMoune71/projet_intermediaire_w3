@@ -6,6 +6,7 @@ require './Framework/PDOFactory.php';
 require './Controllers/BaseController.php';
 require './Controllers/FrontController.php';
 require './Controllers/SecurityController.php';
+require './Controllers/UserController.php';
 
 require './Manager/PostManager.php';
 require './Manager/SecurityManager.php';
@@ -59,7 +60,7 @@ switch ($path) {
 
     case 'inscription':
         $ControllerSecurity = new SecurityController();
-        $ControllerSecurity->inscription();
+        $ControllerSecurity->inscription($email, $password, $lastname, $firstname);
         break;
 
     case 'userList':
@@ -100,6 +101,11 @@ switch ($path) {
     case 'updateUser':
         $Controller = new SecurityController();
         $Controller->updateUser($email, $password, $lastname, $firstname);
+        break;
+        
+    case 'deleteUser':
+        $Controller = new SecurityController();
+        $Controller->deleteUser($id);
         break;
 }
 

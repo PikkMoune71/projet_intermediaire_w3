@@ -25,7 +25,7 @@
                 <td><?= $p->getIdAuthor()?></td>
                 <td>
                     <button href="" type="button" class="btn btn-primary">Editer</button>
-                    <button href="" type="button" class="btn btn-danger">Suprimmer</button>
+                    <button href="" type="button" class="btn btn-danger">Supprimer</button>
                 </td>
             </tr>
         <?php

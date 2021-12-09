@@ -41,7 +41,7 @@ class FrontController extends BaseController
 
     public function createPost() {
         $manager = new PostManager(PDOFactory::getMySqlConnection());
-        $arrayAllPosts = $manager->getAllPosts();
+        $arrayAllPosts = $manager->createPost();
         return $this->render("User Crud",$arrayAllPosts,"Front/createPost");
     }
 

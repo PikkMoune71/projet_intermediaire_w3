@@ -20,7 +20,7 @@ class User{
 
     public function setId($id)
     {
-        $this->id = $id;
+        $this->id_user = $id;
     }
 
     /**

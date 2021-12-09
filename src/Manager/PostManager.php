@@ -36,7 +36,7 @@ class PostManager
 
     public function createPost()
     {
-        $insert = $this->pdo->prepare('INSERT INTO post(title, content, "image", createdAt) VALUES(?, ?, ?, ?, ?)');
+        $insert = $this->pdo->prepare('INSERT INTO post(title, content, image, createdAt) VALUES(?, ?, ?, ?, ?)');
         $dateNow = date("Y-m-d");
         $insert -> execute(array($title, $content, $author, $image, $dateNow));
         return true;
